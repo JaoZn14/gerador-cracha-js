@@ -6,16 +6,17 @@
 </head>
 <body>
     <h1>Gerador de Crachá</h1>
-    <p>Abra a console (F12) para ver o resultado.</p>
+
+    <h2>Aperte F12 e vá para o Console!</h2>
 
     <script>
         let nome = prompt("Digite seu nome:");
         let sobrenome = prompt("Digite seu sobrenome:");
-        let anoNascimento = prompt("Digite seu ano de nascimento:");
+        let anoNascimento = Number(prompt("Digite seu ano de nascimento:"));
 
         while (anoNascimento >= 2027) {
-            alert("O ano deve ser menor que 2027.");
-            anoNascimento = prompt("Digite seu ano de nascimento novamente:");
+            alert("Digite um ano de nascimento menor que 2027.");
+            anoNascimento = Number(prompt("Digite seu ano de nascimento novamente:"));
         }
 
         let alunoAtivo = confirm("É aluno ativo da instituição?");
@@ -23,10 +24,13 @@
         let anoAtual = new Date().getFullYear();
         let idade = anoAtual - anoNascimento;
 
-        console.log("CRACHÁ VIRTUAL:", nome + " " + sobrenome);
-        console.log("Idade estimada:", idade + " anos");
-        console.log("O seu primeiro nome tem", nome.length, "letras.");
-        console.log("Status de aluno ativo:", alunoAtivo ? "Sim" : "Não");
+        let sobrenomeMaiusculo = sobrenome.toUpperCase();
+        let quantidadeLetras = nome.length;
+
+        console.log("CRACHÁ VIRTUAL: " + nome + " " + sobrenomeMaiusculo);
+        console.log("Idade estimada: " + idade + " anos.");
+        console.log("O seu primeiro nome tem " + quantidadeLetras + " letras.");
+        console.log("Status de aluno ativo: " + (alunoAtivo ? "Sim" : "Não"));
     </script>
 </body>
 </html>
